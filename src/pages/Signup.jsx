@@ -37,11 +37,10 @@ const Signup = () => {
       };
 
       const { data } = await axios.post(
-        'http://localhost:5000/api/auth/register',
-        formData,
-        config
-      );
-
+      `${import.meta.env.VITE_API_URL}/api/auth/register`,
+      formData,
+      config
+    );
       console.log('Registration Success:', data);
       localStorage.setItem('userInfo', JSON.stringify(data));
       alert('Registration Successful!');
