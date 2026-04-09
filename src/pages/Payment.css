@@ -1,0 +1,66 @@
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 50px;
+}
+
+.method-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.method-card:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.method-card.active {
+  border-color: var(--primary-color);
+  background-color: rgba(215, 53, 53, 0.05);
+}
+
+.method-info {
+  flex: 1;
+}
+
+.method-info h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  text-transform: none;
+}
+
+.method-info p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.card-details-form {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.order-details-card {
+  background-color: var(--card-bg);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--accent-color);
+  height: fit-content;
+}
+
+.payment-assurance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4CAF50;
+  font-size: 14px;
+  margin-top: 10px;
+}

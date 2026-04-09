@@ -1,0 +1,149 @@
+.food-card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  position: relative;
+}
+
+.food-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(215, 53, 53, 0.5);
+}
+
+.food-img-container {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.food-card:hover .food-img {
+  transform: scale(1.1);
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+}
+
+.wishlist-btn:hover {
+  background-color: var(--primary-color);
+}
+
+.food-rating {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  padding: 5px 12px;
+  border-top-right-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 12px;
+  gap: 5px;
+}
+
+.food-info {
+  padding: 20px;
+}
+
+.food-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.food-name {
+  font-size: var(--card-title-size);
+  color: white;
+  text-transform: none;
+}
+
+.food-price {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--primary-color);
+}
+
+.food-category {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.food-seller {
+  font-size: 12px;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.add-to-cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #333;
+  border-color: #444;
+  color: #888;
+}
+
+/* Hotel Closed Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  z-index: 10;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.hotel-closed {
+  filter: grayscale(0.4);
+}
+
+.overlay-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #fff;
+}

@@ -1,0 +1,209 @@
+.delivery-dashboard-page {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.partner-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar-circle {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-profile h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.role-tag {
+  font-size: 14px;
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.daily-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.stat-pill {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8px 15px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.stat-pill.online {
+  color: #4CAF50;
+  border-color: rgba(76, 175, 80, 0.3);
+}
+
+.stat-pill.online .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  box-shadow: 0 0 10px #4CAF50;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delivery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.delivery-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.delivery-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(215, 53, 53, 0.3);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.order-no {
+  font-family: var(--heading-font);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-badge.pending { background: #FFC107; color: #000; }
+.status-badge.accepted { background: #2196F3; color: #fff; }
+.status-badge.preparing { background: #E91E63; color: #fff; }
+.status-badge.picked { background: #9C27B0; color: #fff; }
+.status-badge.delivered { background: #4CAF50; color: #fff; }
+
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.loc-item {
+  display: flex;
+  gap: 15px;
+}
+
+.loc-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.loc-icon.pickup { background-color: rgba(255, 152, 0, 0.15); color: #FF9800; }
+.loc-icon.drop { background-color: rgba(76, 175, 80, 0.15); color: #4CAF50; }
+
+.loc-text label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+  letter-spacing: 0.5px;
+}
+
+.loc-text p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.success-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.success-btn:hover {
+  opacity: 0.9;
+}
+
+.delivery-done {
+  padding: 12px;
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px dashed rgba(76, 175, 80, 0.3);
+}
+
+.no-orders {
+  padding: 60px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
