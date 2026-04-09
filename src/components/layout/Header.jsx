@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Heart, User, Search, Menu, LogOut, LayoutDashboard, Package, X } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import SignupModal from '../common/SignupModal';
 import './Header.css';
 
 const Header = () => {
@@ -26,7 +27,9 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
+    <>
+      <SignupModal />
+      <header className="header">
       <div className="container header-container">
         <Link to="/" className="logo">
           FEAST<span className="accent">FLOW</span>
@@ -101,6 +104,7 @@ const Header = () => {
         </div>
       </div>
     </header>
+    </>
   );
 };
 

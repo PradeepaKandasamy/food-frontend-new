@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -7,11 +8,13 @@ import './FoodCard.css';
 const FoodCard = ({ food }) => {
   const { addToCart } = useCart();
   const { toggleWishlist, isInWishlist } = useWishlist();
+  const navigate = useNavigate();
   const isOutOfStock = food.stock === 0;
   const isHotelOpen = food.isHotelOpen !== false;
 
-  const handleAddToCart = () => {
-    addToCart(food);
+  const handleAddToCart = async () => {
+    await addToCart(food);
+    navigate('/cart');
   };
 
   const isLiked = isInWishlist(food._id);
@@ -43,7 +46,7 @@ const FoodCard = ({ food }) => {
       <div className="food-info">
         <div className="food-header">
           <h3 className="food-name">{food.name}</h3>
-          <span className="food-price">${food.price.toFixed(2)}</span>
+          <span className="food-price">₹{(food.price * 83).toLocaleString('en-IN')}</span>
         </div>
         <p className="food-category">{food.category}</p>
         <p className="food-seller">By {food.sellerId?.hotelName || 'Special Seller'}</p>

@@ -54,7 +54,6 @@ export const CartProvider = ({ children }) => {
         }
       }, config);
       setCart(data);
-      alert(`${food.name} added to cart! ✅`);
     } catch (error) {
       console.error('Add to cart failed:', error);
       alert('Failed to add to cart: ' + (error.response?.data?.message || error.message));

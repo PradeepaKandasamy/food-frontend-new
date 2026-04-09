@@ -223,7 +223,7 @@ const UserDashboard = () => {
                               </span>
                            </div>
                            <div className="order-item-body">
-                              <p><strong>Total Paid:</strong> ${order.totalAmount.toFixed(2)}</p>
+                              <p><strong>Total Paid:</strong> ₹{(order.totalAmount * 83).toLocaleString('en-IN')}</p>
                               <div className="order-tracking-info" style={{marginTop: '20px', padding: '15px', background: 'rgba(255,255,255,0.02)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)'}}>
                                  <h5 style={{color: 'var(--primary-color)', marginBottom: '10px'}}><Truck size={16} style={{marginRight: '8px'}}/> Delivery Assignment</h5>
                                  {order.deliveryPartner ? (

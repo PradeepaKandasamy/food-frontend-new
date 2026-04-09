@@ -14,6 +14,10 @@ const Cart = () => {
   const delivery = subtotal > 0 ? 5.00 : 0.00;
   const total = subtotal + delivery;
 
+  const formatCurrency = (amount) => {
+    return '₹' + (amount * 83).toLocaleString('en-IN');
+  };
+
   if (loading) return <div className="loading">Loading Cart...</div>;
 
   return (
@@ -34,7 +38,7 @@ const Cart = () => {
                        <img src={item.image} alt={item.name} className="cart-item-img" />
                        <div className="cart-item-info">
                           <h3>{item.name}</h3>
-                          <p className="price">${item.price.toFixed(2)}</p>
+                          <p className="price">{formatCurrency(item.price)}</p>
                        </div>
                        <div className="quantity-controls">
                           <button 
@@ -52,7 +56,7 @@ const Cart = () => {
                           </button>
                        </div>
                        <div className="item-total">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          {formatCurrency(item.price * item.quantity)}
                        </div>
                        <button 
                          className="remove-btn" 
@@ -74,15 +78,15 @@ const Cart = () => {
                 <h3 className="summary-title">Order Summary</h3>
                 <div className="summary-row">
                    <span>Subtotal</span>
-                   <span>${subtotal.toFixed(2)}</span>
+                   <span>{formatCurrency(subtotal)}</span>
                 </div>
                 <div className="summary-row">
                    <span>Delivery Fee</span>
-                   <span>${delivery.toFixed(2)}</span>
+                   <span>{formatCurrency(delivery)}</span>
                 </div>
                 <div className="summary-total summary-row">
                    <span>Total</span>
-                   <span>${total.toFixed(2)}</span>
+                   <span>{formatCurrency(total)}</span>
                 </div>
                 <button 
                   className="primary-btn full-width flex-center gap-2"

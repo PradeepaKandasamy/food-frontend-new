@@ -178,3 +178,146 @@
     height: 400px;
   }
 }
+
+/* Video Modal Styles */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  background: black;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(var(--primary-color-rgb), 0.3);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes modalIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+}
+
+.promo-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.close-video-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.close-video-btn:hover {
+  background: var(--primary-color);
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+/* Play Button Glow & Hover */
+.play-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.play-btn:hover .play-icon-container {
+  transform: scale(1.15);
+  background: var(--primary-color);
+  box-shadow: 0 0 30px var(--primary-color);
+  color: white;
+}
+
+.play-btn:hover {
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+.play-icon-container {
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.img-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.4s;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-overlay:hover .img-play-overlay {
+  opacity: 1;
+}
+
+.img-play-btn {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(215, 53, 53, 0.5);
+  transform: scale(0.8);
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img-overlay:hover .img-play-btn {
+  transform: scale(1);
+}
+
+.hero-img-overlay:hover .hero-img {
+  animation-play-state: paused;
+  transform: scale(1.05);
+  filter: brightness(0.7);
+}

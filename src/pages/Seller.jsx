@@ -173,7 +173,7 @@ const Seller = () => {
   };
 
   const stats = [
-    { id: 1, label: 'Total Earnings', value: '$0.00', icon: <DollarSign size={24} />, color: '#4CAF50' },
+    { id: 1, label: 'Total Earnings', value: '₹0', icon: <DollarSign size={24} />, color: '#4CAF50' },
     { id: 2, label: 'Total Orders', value: '0', icon: <Package size={24} />, color: '#2196F3' },
     { id: 3, label: 'Active Dishes', value: foods.length.toString(), icon: <Utensils size={24} />, color: '#FF9800' },
     { id: 4, label: 'Store Rating', value: 'N/A', icon: <TrendingUp size={24} />, color: '#F44336' },
@@ -344,7 +344,7 @@ const Seller = () => {
                                   <td><img src={food.image} alt={food.name} className="table-row-img" style={{width: '40px', height: '40px', borderRadius: '5px'}}/></td>
                                   <td>{food.name}</td>
                                   <td>{food.category}</td>
-                                  <td>${food.price.toFixed(2)}</td>
+                                  <td>₹{(food.price * 83).toLocaleString('en-IN')}</td>
                                   <td>
                                      <input 
                                        type="number" 

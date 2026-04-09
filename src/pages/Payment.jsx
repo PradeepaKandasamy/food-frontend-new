@@ -198,7 +198,7 @@ const Payment = () => {
                  )}
                  <div className="summary-row" style={{fontSize: '32px', color: 'var(--primary-color)', fontWeight: '700', margin: '20px 0'}}>
                     <span>Amount</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>₹{(total * 83).toLocaleString('en-IN')}</span>
                  </div>
                  <div className="payment-assurance">
                     <ShieldCheck size={18} />
