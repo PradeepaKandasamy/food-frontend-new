@@ -15,7 +15,7 @@ const DeliveryDashboard = () => {
       const config = {
         headers: { Authorization: `Bearer ${userInfo.token}` }
       };
-      const { data } = await axios.get('http://localhost:5000/api/delivery/orders', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/delivery/orders`, config);
       setOrders(data);
       setLoading(false);
     } catch (error) {
@@ -35,7 +35,7 @@ const DeliveryDashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' }
         };
-        await axios.put(`http://localhost:5000/api/delivery/status/${orderId}`, { status: newStatus }, config);
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/delivery/status/${orderId}`, { status: newStatus }, config);
         fetchOrders();
         alert('Status updated successfully!');
      } catch (error) {

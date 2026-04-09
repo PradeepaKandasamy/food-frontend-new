@@ -18,7 +18,7 @@ export const CartProvider = ({ children }) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      const { data } = await axios.get('http://localhost:5000/api/cart', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/cart`, config);
       setCart(data);
       setLoading(false);
     } catch (error) {
@@ -43,7 +43,7 @@ export const CartProvider = ({ children }) => {
           Authorization: `Bearer ${token}` 
         }
       };
-      const { data } = await axios.post('http://localhost:5000/api/cart/add', {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/cart/add`, {
         userId: userInfo._id,
         food: {
           foodId: food._id,
@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
           Authorization: `Bearer ${token}` 
         }
       };
-      const { data } = await axios.put('http://localhost:5000/api/cart/update', { foodId, action }, config);
+      const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/api/cart/update`, { foodId, action }, config);
       setCart(data);
     } catch (error) {
       console.error('Update quantity failed:', error);
@@ -81,7 +81,7 @@ export const CartProvider = ({ children }) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      const { data } = await axios.delete(`http://localhost:5000/api/cart/remove/${foodId}`, config);
+      const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/api/cart/remove/${foodId}`, config);
       setCart(data);
     } catch (error) {
       console.error('Remove from cart failed:', error);

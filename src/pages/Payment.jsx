@@ -24,7 +24,7 @@ const Payment = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` }
         };
-        const { data } = await axios.get('http://localhost:5000/api/users/me', config);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/me`, config);
         setUserProfile(data);
       } catch (error) {
         console.error('Error fetching profile in Payment:', error);
@@ -76,7 +76,7 @@ const Payment = () => {
       };
 
       // 3. Create Order
-      const { data } = await axios.post('http://localhost:5000/api/orders', orderData, config);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/orders`, orderData, config);
       
       console.log('Order Successfully Created ✅', data);
       setPaymentSuccess(true);

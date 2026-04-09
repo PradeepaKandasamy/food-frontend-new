@@ -39,7 +39,7 @@ const Seller = () => {
 
   const fetchMyFoods = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/foods/seller/${userInfo._id}`);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/foods/seller/${userInfo._id}`);
       setFoods(data);
     } catch (error) {
       console.error('Error fetching foods:', error);
@@ -51,7 +51,7 @@ const Seller = () => {
       const config = {
         headers: { Authorization: `Bearer ${userInfo.token}` }
       };
-      const { data } = await axios.get(`http://localhost:5000/api/sellers/profile/${userInfo._id}`, config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/sellers/profile/${userInfo._id}`, config);
       setSeller({ 
         ...data, 
         isOpen: typeof data.isOpen === 'boolean' ? data.isOpen : (data.isOpen === 'false' ? false : true),
@@ -75,7 +75,7 @@ const Seller = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` }
         };
-        await axios.delete(`http://localhost:5000/api/foods/${id}`, config);
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/foods/${id}`, config);
         setFoods(foods.filter(f => f._id !== id));
         alert('Food item deleted');
       } catch (error) {
@@ -89,7 +89,7 @@ const Seller = () => {
       const config = {
         headers: { Authorization: `Bearer ${userInfo.token}` }
       };
-      await axios.put(`http://localhost:5000/api/foods/${id}`, { stock: newStock }, config);
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/foods/${id}`, { stock: newStock }, config);
       setFoods(foods.map(f => f._id === id ? {...f, stock: newStock} : f));
     } catch (error) {
        console.error('Error updating stock:', error);
@@ -117,7 +117,7 @@ const Seller = () => {
           Authorization: `Bearer ${userInfo.token}` 
         }
       };
-      await axios.put(`http://localhost:5000/api/foods/${editingFood._id}`, formData, config);
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/foods/${editingFood._id}`, formData, config);
       alert('Food updated successfully!');
       setEditingFood(null);
       setFormData({ name: '', price: '', stock: 10, category: '', image: '' });
@@ -137,7 +137,7 @@ const Seller = () => {
           Authorization: `Bearer ${userInfo.token}` 
         }
       };
-      await axios.post('http://localhost:5000/api/foods/add', formData, config);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/foods/add`, formData, config);
       alert('Food added successfully!');
       setActiveTab('my-foods');
       // Refresh list
@@ -158,7 +158,7 @@ const Seller = () => {
       };
       // Use the actual seller ID from the state if available, or userInfo._id as fallback
       const updateId = seller._id || userInfo._id;
-      const { data } = await axios.put(`http://localhost:5000/api/sellers/${updateId}`, seller, config);
+      const { data } = await axios.put(`${import.meta.env.VITE_API_URL}/api/sellers/${updateId}`, seller, config);
       
       // Update local storage to keep header/other components in sync
       const updatedUserInfo = { ...userInfo, name: data.name };

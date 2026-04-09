@@ -58,7 +58,7 @@ const UserDashboard = () => {
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      const { data } = await axios.get('http://localhost:5000/api/users/me', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/users/me`, config);
       setUser({
           ...data,
           location: data.location?.lat ? data.location : { lat: 20.5937, lng: 78.9629 }
@@ -75,7 +75,7 @@ const UserDashboard = () => {
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      const { data } = await axios.get('http://localhost:5000/api/orders/user', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/orders/user`, config);
       setOrders(data);
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -121,7 +121,7 @@ const UserDashboard = () => {
           Authorization: `Bearer ${token}` 
         }
       };
-      await axios.put('http://localhost:5000/api/users/update', user, config);
+      await axios.put(`${import.meta.env.VITE_API_URL}/api/users/update`, user, config);
       const updatedUserInfo = { ...userInfo, name: user.name };
       localStorage.setItem('userInfo', JSON.stringify(updatedUserInfo));
       alert('Profile updated successfully!');
@@ -148,7 +148,7 @@ const UserDashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${token}` }
         };
-        await axios.put(`http://localhost:5000/api/orders/cancel/${id}`, {}, config);
+        await axios.put(`${import.meta.env.VITE_API_URL}/api/orders/cancel/${id}`, {}, config);
         alert("Order Cancelled & Refund Processed ✅");
         fetchOrders();
       } catch (error) {

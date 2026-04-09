@@ -14,7 +14,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/foods');
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/foods`);
         setFoods(data);
         setLoading(false);
       } catch (error) {

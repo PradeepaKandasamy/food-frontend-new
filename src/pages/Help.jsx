@@ -37,7 +37,7 @@ const Help = ({ tab = 'faq' }) => {
   const fetchRecentOrders = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/orders/user', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/orders/user`, config);
       // Only show cancellable orders
       setRecentOrders(data.filter(o => ['pending', 'confirmed'].includes(o.status)));
     } catch (error) {
@@ -49,7 +49,7 @@ const Help = ({ tab = 'faq' }) => {
     if (window.confirm("Confirm cancellation? Refund will be processed immediately.")) {
        try {
          const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-         await axios.put(`http://localhost:5000/api/orders/cancel/${id}`, {}, config);
+         await axios.put(`${import.meta.env.VITE_API_URL}/api/orders/cancel/${id}`, {}, config);
          alert("Order Cancelled & Refund Processed ✅");
          fetchRecentOrders();
        } catch (error) {
@@ -106,7 +106,7 @@ const Help = ({ tab = 'faq' }) => {
     setIsTyping(true);
 
     try {
-      const { data } = await axios.post('http://localhost:5000/api/help/chat', {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/help/chat`, {
         message: input
       });
       

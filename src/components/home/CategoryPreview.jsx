@@ -19,7 +19,7 @@ const CategoryPreview = () => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/foods');
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/foods`);
         const grouped = data.reduce((acc, food) => {
           if (food.sellerId?.isOpen) {
             acc[food.category] = (acc[food.category] || 0) + 1;

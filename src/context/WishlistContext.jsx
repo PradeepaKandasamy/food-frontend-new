@@ -18,7 +18,7 @@ export const WishlistProvider = ({ children }) => {
       const config = {
         headers: { Authorization: `Bearer ${token}` }
       };
-      const { data } = await axios.get('http://localhost:5000/api/wishlist', config);
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/wishlist`, config);
       setWishlist(data);
       setLoading(false);
     } catch (error) {
@@ -40,7 +40,7 @@ export const WishlistProvider = ({ children }) => {
           Authorization: `Bearer ${token}` 
         }
       };
-      const { data } = await axios.post('http://localhost:5000/api/wishlist/toggle', {
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/wishlist/toggle`, {
         foodId
       }, config);
       setWishlist(data);

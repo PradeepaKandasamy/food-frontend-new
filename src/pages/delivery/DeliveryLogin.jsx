@@ -22,7 +22,7 @@ const DeliveryLogin = () => {
       };
 
       const { data } = await axios.post(
-        'http://localhost:5000/api/delivery/login',
+        `${import.meta.env.VITE_API_URL}/api/delivery/login`,
         { email, password },
         config
       );
